@@ -49,8 +49,8 @@ function init() {
 function filterTypeSelected() {
     $(".filter-value-container").hide();
     filterType = $("#filter-type-selector").val();
-    if(filterType=="alles") {
-        selectSource("alles");
+    if(filterType=="all") {
+        selectSource("all");
     }
     else {
         $("#filter-value-selector-" + filterType).val("");
@@ -67,7 +67,7 @@ function initMap() {
         },
         mapTypeId: google.maps.MapTypeId.MAP
     });    
-    selectSource("alles");
+    selectSource("all");
 }
 
 function makeRadiusSlider() {
@@ -159,7 +159,7 @@ function selectSource(source) {
     console.log("load file: "+source);
     $.ajax({
         type: "GET",
-        url: source + ".txt",
+        url: source + ".csv",
         success: function(response) {
             receivedData(response)
         }
