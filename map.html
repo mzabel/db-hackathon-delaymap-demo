@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Heatmaps</title>
+    <link rel="stylesheet" href="map.css"/>
+    <link href="external/jquery-ui.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="floating-panel">
+      Radius: <span id="radius">0</span> <div class="slider" id="radius-slider"></div>
+      Max. Intensität: <span id="intensity">0</span> <div class="slider" id="intensity-slider"></div> 
+      Filtern nach ... 
+    <select id="filter-type-selector" onchange="filterTypeSelected()">
+
+    </select>
+      <div class="filter-value-container" id="filter-value-container-weekday">
+        <select id="filter-value-selector-weekday" onchange="applyFilter(this)">
+        </select>
+      </div>
+      <div class="filter-value-container" id="filter-value-container-traintype">
+        <select id="filter-value-selector-traintype" onchange="applyFilter(this)">
+        </select>
+      </div>
+      <div class="filter-value-container" id="filter-value-container-change">
+        <select id="filter-value-selector-change" onchange="applyFilter(this)">
+        </select>
+      </div>
+      <div class="filter-value-container" id="filter-value-container-week">
+        <span id="weektext">1</span>
+        <div class="slider" id="filter-value-selector-week">
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>    
+    <script src="external/jquery-2.1.4.min.js"></script>
+    <script src="external/jquery-ui.js"></script>
+    <script src="external/papaparse.min.js"></script>
+    <script src="external/underscore.min.js"></script>
+    <script src="map.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=visualization&callback=initMap">
+    </script>
+  </body>
+</html>
